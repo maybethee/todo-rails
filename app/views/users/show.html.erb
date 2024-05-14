@@ -1,0 +1,7 @@
+<h1><%= @user.name %>'s Tasks</h1>
+
+<% @tasks.each do |task| %>
+  <h3>
+    <%= link_to task.title, task_path(task) %>
+  </h3>
+<% end %>
