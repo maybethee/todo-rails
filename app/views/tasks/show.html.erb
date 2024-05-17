@@ -5,3 +5,12 @@
 <p>
   <%= @task.description %>
 </p>
+
+<div>Categories:
+  <%# remember: 
+  when building form loop blocks > use %= 
+  using each loops > use % only because #each returns original array %>
+<% @task.categories.each do |category| %>
+  <%= category.name %>, 
+<% end %>
+</div>

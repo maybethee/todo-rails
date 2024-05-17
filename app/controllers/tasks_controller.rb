@@ -6,6 +6,8 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    # need to build category on the task_category build
+    @task.task_categories.build.build_category
   end
 
   def create
@@ -34,7 +36,9 @@ class TasksController < ApplicationController
 
   private
 
+  # need to permit both task_categories and categories' attributes since they're nested and I'm wanting to post info to the category model which is linked to the task_category (and it's nested inside it because task_category gets built first?)
+  # this is all still a bit confusing to me but okay.
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, task_categories_attributes: [:id, category_attributes: [:id, :name]])
   end
 end
