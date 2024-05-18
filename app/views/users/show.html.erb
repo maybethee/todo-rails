@@ -1,5 +1,10 @@
 <h1><%= @user.name %>'s Tasks</h1>
 
+<%= form_with model: @task, method: :get do |form| %>
+  <%= form.collection_select(:name, Category.select(:name).distinct, :name, :name, prompt: true) %>
+  <%= form.submit %>
+<% end %>
+
 <% @tasks.each do |task| %>
   <h3>
     <%= link_to task.title, task_path(task) %>

@@ -6,11 +6,11 @@
   <%= @task.description %>
 </p>
 
-<div>Categories:
+<div>Tag:
   <%# remember: 
   when building form loop blocks > use %= 
   using each loops > use % only because #each returns original array %>
 <% @task.categories.each do |category| %>
-  <%= category.name %>, 
+  <%= category.name %>
 <% end %>
 </div>
