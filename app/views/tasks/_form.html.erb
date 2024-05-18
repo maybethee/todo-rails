@@ -2,10 +2,6 @@
   <%= form.input :title %>
   <%= form.input :description %>
   <h4>category</h4>
-    <%= form.simple_fields_for :task_categories do |task_categories_form| %>
-      <%= task_categories_form.simple_fields_for :category do |category_form| %>
-        <%= category_form.input :name %>
-      <% end %>
-    <% end %>
+  <%= form.input :category_names, label: "Tags (comma-separated)" %>
   <%= form.button :submit %>
 <% end %>
