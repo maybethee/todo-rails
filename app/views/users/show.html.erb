@@ -1,7 +1,8 @@
 <h1><%= @user.name %>'s Tasks</h1>
 
+<%# need to allow filtering by no tags instead of returning all tasks, also maybe filtering by more than one? eh that feels like extra credit... %>
 <%= form_with model: @task, method: :get do |form| %>
-  <%= form.collection_select(:name, Category.select(:name).distinct, :name, :name, prompt: true) %>
+  <%= form.collection_select(:name, Category.select(:name).distinct, :name, :name, prompt: 'All Tasks') %>
   <%= form.submit %>
 <% end %>
 

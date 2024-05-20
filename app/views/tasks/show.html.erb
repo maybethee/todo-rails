@@ -11,6 +11,8 @@
   when building form loop blocks > use %= 
   using each loops > use % only because #each returns original array %>
 <% @task.categories.each do |category| %>
-  #<%= category.name %>
+  <% unless category.name == 'No Tag' %>
+    #<%= category.name %>
+  <% end %>
 <% end %>
 </div>
